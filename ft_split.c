@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 17:08:17 by acousini          #+#    #+#             */
-/*   Updated: 2021/01/12 18:43:36 by acousini         ###   ########.fr       */
+/*   Updated: 2021/01/15 16:55:06 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char			**ft_split(char const *s, char c)
 	i = 0;
 	if (!s)
 		return (NULL);
-	copy = ((char**)malloc(sizeof(char*) * (ft_get_size(s, c))));
+	copy = ((char**)malloc(sizeof(char*) * (ft_get_size(s, c)) + 1));
 	if (!copy)
 		return (NULL);
 	while (*s)
@@ -66,7 +66,8 @@ char			**ft_split(char const *s, char c)
 			copy[i] = (char*)malloc(s - from + 1);
 			ft_strcpy22(copy[i++], from, s);
 		}
-		s++;
+		if (*s)
+			s++;
 	}
 	copy[i] = NULL;
 	return (copy);
