@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 16:01:32 by acousini          #+#    #+#             */
-/*   Updated: 2021/01/12 18:06:17 by acousini         ###   ########.fr       */
+/*   Updated: 2021/01/15 13:40:43 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst)
-		return  ;
+		return ;
 	if (del)
 		(del)(lst->content);
 	free(lst);

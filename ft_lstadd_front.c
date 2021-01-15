@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 13:25:12 by acousini          #+#    #+#             */
-/*   Updated: 2021/01/12 17:50:42 by acousini         ###   ########.fr       */
+/*   Updated: 2021/01/15 13:40:31 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	ft_lstadd_front(t_list **alst, t_list *new)
 	if (!*alst)
 	{
 		*alst = new;
-		return  ;
+		return ;
 	}
 	if (!new)
-		return  ;
+		return ;
 	new->next = *alst;
 	*alst = new;
 }

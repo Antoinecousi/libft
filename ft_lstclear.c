@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 16:12:40 by acousini          #+#    #+#             */
-/*   Updated: 2021/01/12 18:21:48 by acousini         ###   ########.fr       */
+/*   Updated: 2021/01/15 13:40:18 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 
 	copy = *lst;
 	if (!del)
-		return  ;
+		return ;
 	while (copy->next)
 	{
 		del((*lst)->content);
