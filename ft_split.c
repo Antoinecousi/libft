@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 17:08:17 by acousini          #+#    #+#             */
-/*   Updated: 2021/01/15 16:55:06 by acousini         ###   ########.fr       */
+/*   Updated: 2021/01/19 13:47:46 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static int		ft_get_size(const char *str, char charset)
 			while (*str && ft_occur(*str, charset) == 0)
 				str++;
 		}
-		str++;
+		if (*str)
+			str++;
 	}
 	return (size);
 }
@@ -49,26 +50,25 @@ char			**ft_split(char const *s, char c)
 	char		**copy;
 	int			i;
 	const char	*from;
+	int			j;
 
+	j = 0;
 	i = 0;
-	if (!s)
-		return (NULL);
-	copy = ((char**)malloc(sizeof(char*) * (ft_get_size(s, c)) + 1));
-	if (!copy)
-		return (NULL);
-	while (*s)
+	if (!s || !(copy = malloc(sizeof(char*) * (ft_get_size(s, c) + 1))))
+		return (0);
+	while (s[i])
 	{
-		if (ft_occur(*s, c) == 0)
+		if (ft_occur(s[i], c) == 0)
 		{
-			from = s;
-			while (*s && ft_occur(*s, c) == 0)
-				s++;
-			copy[i] = (char*)malloc(s - from + 1);
-			ft_strcpy22(copy[i++], from, s);
+			from = s + i;
+			while (s[i] && ft_occur(s[i], c) == 0)
+				i++;
+			copy[j] = malloc(sizeof(char) * (s + i - from + 1));
+			ft_strcpy22(copy[j++], from, s + i);
 		}
-		if (*s)
-			s++;
+		if (s[i])
+			i++;
 	}
-	copy[i] = NULL;
+	copy[j] = 0;
 	return (copy);
 }
