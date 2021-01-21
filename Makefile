@@ -6,7 +6,7 @@
 #    By: acousini <acousini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/08 18:00:10 by acousini          #+#    #+#              #
-#    Updated: 2021/01/19 11:37:33 by acousini         ###   ########.fr        #
+#    Updated: 2021/01/21 14:39:55 by acousini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,6 @@ fclean:			clean
 re:				fclean all
 
 bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rc libft.a $(OBJS) $(BONUS_OBJS)
+				ar rc libft.a $(BONUS_OBJS)
 
 .PHONY:			all clean fclean re
